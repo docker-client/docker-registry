@@ -112,7 +112,7 @@ publishing {
           url.set("https://github.com/docker-client/docker-registry")
         }
       }
-      artifactId = "docker-docker-registry"
+      artifactId = "docker-registry"
       version = artifactVersion
       from(components["java"])
       artifact(sourcesJar.get())
