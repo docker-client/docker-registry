@@ -1,17 +1,20 @@
-# https://github.com/golang/go/issues/35447
-FROM golang:1.12 as build
+FROM golang:1.16.15 AS build
+#FROM golang:1.16.15-nanoserver AS build
+
+ENV GO111MODULE=auto
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 ENV DOCKER_BUILDTAGS include_oss include_gcs
-ENV DISTRIBUTION_VERSION v2.7.1
+ENV DISTRIBUTION_VERSION v2.8.1
 
 RUN mkdir src\github.com\docker ; \
     cd src\github.com\docker ; \
     git clone -q https://github.com/docker/distribution ; \
     cd distribution ; \
     git checkout -q $env:DISTRIBUTION_VERSION ; \
-    go build -o registry.exe cmd/registry/main.go
+    cd cmd\registry ; \
+    go build -o registry.exe
 
 FROM mcr.microsoft.com/windows/nanoserver:ltsc2022
 #FROM mcr.microsoft.com/windows/servercore:ltsc2019
@@ -22,5 +25,5 @@ EXPOSE 5000
 ENTRYPOINT ["\\registry.exe"]
 CMD ["serve", "/config/config.yml"]
 
-COPY --from=build /gopath/src/github.com/docker/distribution/registry.exe /registry.exe
+COPY --from=build /gopath/src/github.com/docker/distribution/cmd/registry/registry.exe /registry.exe
 COPY config.yml /config/config.yml
