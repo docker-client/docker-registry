@@ -26,25 +26,34 @@ public class DockerRegistry {
   private final ContainerApi containerApi;
   private final ImageApi imageApi;
 
+  private String imageNameWithTag;
+
   private String registryId;
 
   public DockerRegistry() {
     DockerClientConfig dockerClientConfig = new DockerClientConfig();
     this.containerApi = new ContainerApi(dockerClientConfig);
     this.imageApi = new ImageApi(dockerClientConfig);
+
+    if (LocalDocker.isNativeWindows()) {
+      imageNameWithTag = "gesellix/registry:2.7.1-windows";
+    }
+    else {
+      imageNameWithTag = "registry:2.7.1";
+    }
   }
 
-  public String getImageName() {
-    return LocalDocker.isNativeWindows() ? "gesellix/registry" : "registry";
+  public void setImageNameWithTag(String imageNameWithTag) {
+    this.imageNameWithTag = imageNameWithTag;
   }
 
-  public String getImageTag() {
-    return LocalDocker.isNativeWindows() ? "2.7.1-windows" : "2.7.1";
+  public String getImageNameWithTag() {
+    return imageNameWithTag;
   }
 
   public void run() {
     ContainerCreateRequest containerConfig = new ContainerCreateRequest();
-    containerConfig.setImage(getImageName() + ":" + getImageTag());
+    containerConfig.setImage(getImageNameWithTag());
     containerConfig.setEnv(singletonList("REGISTRY_VALIDATION_DISABLED=true"));
     Map<String, Object> exposedPorts = new HashMap<>();
     exposedPorts.put("5000/tcp", emptyMap());
