@@ -39,7 +39,7 @@ public class DockerRegistry {
       imageNameWithTag = "gesellix/registry:2.7.1-windows";
     }
     else {
-      imageNameWithTag = "registry:2.7.1";
+      imageNameWithTag = "registry:2.8";
     }
   }
 
