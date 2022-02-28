@@ -13,7 +13,9 @@ RUN mkdir src\github.com\docker ; \
     git checkout -q $env:DISTRIBUTION_VERSION ; \
     go build -o registry.exe cmd/registry/main.go
 
-FROM mcr.microsoft.com/windows/nanoserver:1809
+FROM mcr.microsoft.com/windows/nanoserver:ltsc2022
+#FROM mcr.microsoft.com/windows/servercore:ltsc2019
+#FROM mcr.microsoft.com/windows/nanoserver:1809
 #FROM mcr.microsoft.com/windows/nanoserver:sac2016
 EXPOSE 5000
 
