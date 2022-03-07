@@ -1,5 +1,5 @@
 # https://github.com/golang/go/issues/35447
-FROM golang:1.12 as build
+FROM golang:1.17.8 as build
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
