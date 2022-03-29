@@ -39,7 +39,7 @@ dependencies {
       }
     }
   }
-  implementation("de.gesellix:docker-remote-api-client:2022-02-23T13-45-00")
+  implementation("de.gesellix:docker-remote-api-client:2022-03-28T22-19-00")
   implementation("de.gesellix:docker-remote-api-model-1-41:2022-02-23T11-47-00")
   implementation("de.gesellix:docker-engine:2022-02-22T23-12-00")
 
