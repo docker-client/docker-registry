@@ -37,10 +37,6 @@ public class DockerRegistry {
 
     if (LocalDocker.isNativeWindows()) {
       imageNameWithTag = "gesellix/registry:2.8.1-windows-ltsc2022";
-//      imageNameWithTag = "gesellix/registry:2.7.1-windows-ltsc2022";
-//      imageNameWithTag = "gesellix/registry:2.7.1-windows-ltsc2019";
-//      imageNameWithTag = "gesellix/registry:2.7.1-windows-1809";
-//      imageNameWithTag = "gesellix/registry:2.7.1-windows";
     }
     else {
       imageNameWithTag = "registry:2.8.1";
