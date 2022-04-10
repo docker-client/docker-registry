@@ -21,6 +21,7 @@ dependencies {
     listOf(
       "org.jetbrains.kotlin:kotlin-reflect",
       "org.jetbrains.kotlin:kotlin-stdlib",
+      "org.jetbrains.kotlin:kotlin-stdlib-jdk7",
       "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
       "org.jetbrains.kotlin:kotlin-stdlib-common",
       "org.jetbrains.kotlin:kotlin-test"
@@ -28,7 +29,7 @@ dependencies {
       implementation(it) {
         version {
           strictly("[1.5,1.7)")
-          prefer("1.6.10")
+          prefer("1.6.20")
         }
       }
     }
@@ -39,12 +40,12 @@ dependencies {
       }
     }
   }
-  implementation("de.gesellix:docker-remote-api-client:2022-03-28T22-19-00")
-  implementation("de.gesellix:docker-remote-api-model-1-41:2022-04-09T16-18-00")
-  implementation("de.gesellix:docker-engine:2022-04-09T23-24-00")
+  implementation("de.gesellix:docker-remote-api-client:[2022-03-28T22-19-00,)")
+  implementation("de.gesellix:docker-remote-api-model-1-41:[2022-02-23T11-47-00,)")
+  implementation("de.gesellix:docker-engine:[2022-02-22T23-12-00,)")
 
   implementation("org.slf4j:slf4j-api:[1.7,)!!1.7.36")
-  testImplementation("ch.qos.logback:logback-classic:[1.2,2)!!1.2.10")
+  testImplementation("ch.qos.logback:logback-classic:[1.2,2)!!1.2.11")
 
   testImplementation("org.codehaus.groovy:groovy:[3,4)!!3.0.9")
   testImplementation("org.spockframework:spock-core:2.1-groovy-3.0")
