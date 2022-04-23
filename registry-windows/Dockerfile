@@ -17,9 +17,6 @@ RUN mkdir src\github.com\docker ; \
     go build -o registry.exe
 
 FROM mcr.microsoft.com/windows/nanoserver:ltsc2022
-#FROM mcr.microsoft.com/windows/servercore:ltsc2019
-#FROM mcr.microsoft.com/windows/nanoserver:1809
-#FROM mcr.microsoft.com/windows/nanoserver:sac2016
 EXPOSE 5000
 
 ENTRYPOINT ["\\registry.exe"]
