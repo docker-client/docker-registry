@@ -1,5 +1,5 @@
 FROM golang:1.18.1 AS build
-#FROM golang:1.16.15-nanoserver AS build
+#FROM golang:1.18.1-nanoserver AS build
 
 ENV GO111MODULE=auto
 
@@ -22,5 +22,5 @@ EXPOSE 5000
 ENTRYPOINT ["\\registry.exe"]
 CMD ["serve", "/config/config.yml"]
 
-COPY --from=build /gopath/src/github.com/docker/distribution/cmd/registry/registry.exe /registry.exe
+COPY --from=build /go/src/github.com/docker/distribution/cmd/registry/registry.exe /registry.exe
 COPY config.yml /config/config.yml
