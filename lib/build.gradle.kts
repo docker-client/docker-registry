@@ -29,8 +29,8 @@ dependencies {
     ).onEach {
       implementation(it) {
         version {
-          strictly("[1.5,1.9)")
-          prefer("1.8.20")
+          strictly("[1.6,1.9)")
+          prefer("1.8.21")
         }
       }
     }
