@@ -33,10 +33,15 @@ dependencies {
         }
       }
     }
-    implementation("com.squareup.okio:okio") {
-      version {
-        strictly("[2.5,4)")
-        prefer("3.1.0")
+    listOf(
+      "com.squareup.okio:okio",
+      "com.squareup.okio:okio-jvm"
+    ).forEach {
+      implementation(it) {
+        version {
+          strictly("[3,4)")
+          prefer("3.1.0")
+        }
       }
     }
   }
