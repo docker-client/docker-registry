@@ -28,8 +28,8 @@ dependencies {
     ).onEach {
       implementation(it) {
         version {
-          strictly("[1.5,1.7)")
-          prefer("1.6.21")
+          strictly("[1.5,1.8)")
+          prefer("1.7.10")
         }
       }
     }
@@ -40,7 +40,7 @@ dependencies {
       implementation(it) {
         version {
           strictly("[3,4)")
-          prefer("3.1.0")
+          prefer("3.2.0")
         }
       }
     }
@@ -52,7 +52,7 @@ dependencies {
   implementation("org.slf4j:slf4j-api:[1.7,)!!1.7.36")
   testImplementation("ch.qos.logback:logback-classic:[1.2,2)!!1.2.11")
 
-  testImplementation("org.codehaus.groovy:groovy:[3,4)!!3.0.10")
+  testImplementation("org.codehaus.groovy:groovy:[3,4)!!3.0.11")
   testImplementation("org.spockframework:spock-core:2.1-groovy-3.0")
 }
 
