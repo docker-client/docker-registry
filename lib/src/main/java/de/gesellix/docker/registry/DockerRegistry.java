@@ -37,8 +37,7 @@ public class DockerRegistry {
 
     if (LocalDocker.isNativeWindows()) {
       imageNameWithTag = "gesellix/registry:2.8.1-windows-ltsc2022";
-    }
-    else {
+    } else {
       imageNameWithTag = "registry:2.8.1";
     }
   }
@@ -79,8 +78,7 @@ public class DockerRegistry {
     log.debug("docker create");
     try {
       return containerApi.containerCreate(containerCreateRequest, null);
-    }
-    catch (ClientException exception) {
+    } catch (ClientException exception) {
       if (exception.getStatusCode() == 404) {
         log.debug("Image '{}' not found locally.", containerCreateRequest.getImage());
         imageApi.imageCreate(containerCreateRequest.getImage(),
@@ -122,7 +120,7 @@ public class DockerRegistry {
 
   public void rm() {
     containerApi.containerStop(registryId, null);
-    containerApi.containerWait(registryId, null);
+    containerApi.containerWait(registryId, ContainerApi.ConditionContainerWait.NotMinusRunning);
     containerApi.containerDelete(registryId, null, null, null);
   }
 }

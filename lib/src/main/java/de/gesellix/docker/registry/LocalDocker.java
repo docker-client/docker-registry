@@ -15,8 +15,7 @@ public class LocalDocker {
       DockerClientConfig dockerClientConfig = new DockerClientConfig();
       SystemApi systemApi = new SystemApi(dockerClientConfig);
       return "OK".equals(systemApi.systemPing());
-    }
-    catch (Exception e) {
+    } catch (Exception e) {
       log.info("Docker not available", e);
       return false;
     }
@@ -30,8 +29,7 @@ public class LocalDocker {
       String arch = systemVersion.getArch();
       String os = systemVersion.getOs();
       return "windows/amd64".equals(os + "/" + arch);
-    }
-    catch (Exception e) {
+    } catch (Exception e) {
       log.info("Docker not available", e);
       throw new RuntimeException(e);
     }
