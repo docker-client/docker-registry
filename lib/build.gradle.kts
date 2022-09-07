@@ -52,7 +52,6 @@ dependencies {
   implementation("org.slf4j:slf4j-api:[1.7,)!!1.7.36")
   testImplementation("ch.qos.logback:logback-classic:[1.2,2)!!1.2.11")
 
-  testImplementation("org.codehaus.groovy:groovy:[3,4)!!3.0.12")
   testImplementation("org.spockframework:spock-core:2.2-groovy-4.0")
 }
 
