@@ -1,5 +1,15 @@
 package de.gesellix.docker.registry;
 
+import static java.util.Collections.emptyMap;
+import static java.util.Collections.singletonList;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import de.gesellix.docker.engine.DockerClientConfig;
 import de.gesellix.docker.remote.api.ContainerCreateRequest;
 import de.gesellix.docker.remote.api.ContainerCreateResponse;
@@ -9,15 +19,6 @@ import de.gesellix.docker.remote.api.PortBinding;
 import de.gesellix.docker.remote.api.client.ContainerApi;
 import de.gesellix.docker.remote.api.client.ImageApi;
 import de.gesellix.docker.remote.api.core.ClientException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import static java.util.Collections.emptyMap;
-import static java.util.Collections.singletonList;
 
 public class DockerRegistry {
 
@@ -82,8 +83,8 @@ public class DockerRegistry {
       if (exception.getStatusCode() == 404) {
         log.debug("Image '{}' not found locally.", containerCreateRequest.getImage());
         imageApi.imageCreate(containerCreateRequest.getImage(),
-                             null, null, null, null,
-                             null, null, null, null);
+            null, null, null, null,
+            null, null, null, null);
         return containerApi.containerCreate(containerCreateRequest, null);
       }
       throw exception;
@@ -120,7 +121,7 @@ public class DockerRegistry {
 
   public void rm() {
     containerApi.containerStop(registryId, null);
-    containerApi.containerWait(registryId, ContainerApi.ConditionContainerWait.NotMinusRunning);
+    containerApi.containerWait(registryId, (ContainerApi.ConditionContainerWait) null);
     containerApi.containerDelete(registryId, null, null, null);
   }
 }
