@@ -12,8 +12,9 @@ plugins {
 }
 
 java {
-  sourceCompatibility = JavaVersion.VERSION_1_8
-  targetCompatibility = JavaVersion.VERSION_1_8
+  toolchain {
+    languageVersion.set(JavaLanguageVersion.of(8))
+  }
 }
 
 dependencies {
@@ -55,8 +56,13 @@ dependencies {
   testImplementation("org.spockframework:spock-core:2.3-groovy-4.0")
 }
 
-tasks.withType<Test> {
-  useJUnitPlatform()
+tasks {
+  withType<JavaCompile> {
+    options.encoding = "UTF-8"
+  }
+  withType<Test> {
+    useJUnitPlatform()
+  }
 }
 
 val javadocJar by tasks.registering(Jar::class) {
