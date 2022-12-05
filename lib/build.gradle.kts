@@ -30,7 +30,7 @@ dependencies {
       implementation(it) {
         version {
           strictly("[1.5,1.8)")
-          prefer("1.7.21")
+          prefer("1.7.22")
         }
       }
     }
@@ -50,7 +50,7 @@ dependencies {
   implementation("de.gesellix:docker-remote-api-model-1-41:[2022-07-24T11-47-00,)")
   implementation("de.gesellix:docker-engine:[2022-07-24T23-12-00,)")
 
-  implementation("org.slf4j:slf4j-api:[1.7,)!!2.0.3")
+  implementation("org.slf4j:slf4j-api:[1.7,)!!2.0.5")
   testImplementation("ch.qos.logback:logback-classic:[1.2,2)!!1.3.3")
 
   testImplementation("org.spockframework:spock-core:2.3-groovy-4.0")
