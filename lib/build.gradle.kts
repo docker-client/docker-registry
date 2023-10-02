@@ -41,14 +41,14 @@ dependencies {
       implementation(it) {
         version {
           strictly("[3,4)")
-          prefer("3.5.0")
+          prefer("3.6.0")
         }
       }
     }
   }
-  implementation("de.gesellix:docker-remote-api-client:[2023-06-30T01-01-01,)")
-  implementation("de.gesellix:docker-remote-api-model-1-41:[2023-06-30T01-01-01,)")
-  implementation("de.gesellix:docker-engine:[2023-06-30T01-01-01,)")
+  implementation("de.gesellix:docker-remote-api-client:[2023-09-30T01-01-01,)")
+  implementation("de.gesellix:docker-remote-api-model-1-41:[2023-09-30T01-01-01,)")
+  implementation("de.gesellix:docker-engine:[2023-09-30T01-01-01,)")
 
   implementation("org.slf4j:slf4j-api:[1.7,)!!2.0.9")
   testImplementation("ch.qos.logback:logback-classic:[1.2,2)!!1.3.11")
