@@ -39,8 +39,9 @@ public class DockerRegistry {
     if (LocalDocker.isNativeWindows()) {
       imageNameWithTag = "gesellix/registry:2.8.1-windows-ltsc2022";
     } else {
-      imageNameWithTag = "registry:2.8.1";
+      imageNameWithTag = "registry:2.8.3";
     }
+    imageNameWithTag = System.getProperty("DOCKER_REGISTRY_IMAGE_OVERRIDE", imageNameWithTag);
   }
 
   public void setImageNameWithTag(String imageNameWithTag) {
