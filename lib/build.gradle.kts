@@ -50,7 +50,7 @@ dependencies {
   implementation("de.gesellix:docker-remote-api-model-1-41:[2024-01-01T01-01-01,)")
   implementation("de.gesellix:docker-engine:[2024-01-01T01-01-01,)")
 
-  implementation("org.slf4j:slf4j-api:[1.7,)!!2.0.12")
+  implementation("org.slf4j:slf4j-api:[1.7,)!!2.0.13")
   testImplementation("ch.qos.logback:logback-classic:[1.2,2)!!1.3.14")
 
   testImplementation("org.spockframework:spock-core:2.3-groovy-4.0")
