@@ -12,7 +12,7 @@ plugins {
 }
 
 val dependencyVersions = listOf(
-  "org.jetbrains:annotations:24.1.0"
+  "org.jetbrains:annotations:25.0.0"
 )
 
 val dependencyVersionsByGroup = mapOf<String, String>(
