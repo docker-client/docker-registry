@@ -19,29 +19,19 @@ java {
 
 dependencies {
   constraints {
-    listOf(
-      "org.jetbrains.kotlin:kotlin-reflect",
-      "org.jetbrains.kotlin:kotlin-stdlib",
-      "org.jetbrains.kotlin:kotlin-stdlib-jdk7",
-      "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
-      "org.jetbrains.kotlin:kotlin-stdlib-common",
-      "org.jetbrains.kotlin:kotlin-test"
-    ).forEach {
+    listOf(libs.bundles.kotlin).forEach {
       implementation(it) {
         version {
-          strictly("[1.6,3)")
-          prefer("2.1.0")
+          strictly(libs.versions.kotlinVersionrange.get())
+          prefer(libs.versions.kotlin.get())
         }
       }
     }
-    listOf(
-      "com.squareup.okio:okio",
-      "com.squareup.okio:okio-jvm"
-    ).forEach {
+    listOf(libs.bundles.okio).forEach {
       implementation(it) {
         version {
-          strictly("[3,4)")
-          prefer("3.9.1")
+          strictly(libs.versions.okioVersionrange.get())
+          prefer(libs.versions.okio.get())
         }
       }
     }
@@ -50,8 +40,8 @@ dependencies {
   implementation("de.gesellix:docker-remote-api-model-1-41:[2024-01-01T01-01-01,)")
   implementation("de.gesellix:docker-engine:[2024-01-01T01-01-01,)")
 
-  implementation("org.slf4j:slf4j-api:[1.7,)!!2.0.16")
-  testImplementation("ch.qos.logback:logback-classic:[1.2,2)!!1.3.14")
+  implementation("org.slf4j:slf4j-api:${libs.versions.slf4jVersionrange.get()}!!${libs.versions.slf4j.get()}")
+  testImplementation("ch.qos.logback:logback-classic:${libs.versions.logbackVersionrange.get()}!!${libs.versions.logback.get()}")
 
   testImplementation("org.spockframework:spock-core:2.3-groovy-4.0")
 }
