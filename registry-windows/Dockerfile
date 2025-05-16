@@ -1,4 +1,4 @@
-FROM golang:1.24.2 AS build
+FROM golang:1.24.3 AS build
 #FROM golang:1.19.0-nanoserver AS build
 
 ENV GO111MODULE=auto
