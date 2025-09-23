@@ -7,7 +7,7 @@ plugins {
   id("maven-publish")
   id("signing")
   id("com.github.ben-manes.versions")
-  id("net.ossindex.audit")
+//  id("org.sonatype.gradle.plugins.scan")
   id("io.freefair.maven-central.validate-poms")
 }
 
@@ -44,6 +44,7 @@ dependencies {
   testImplementation("ch.qos.logback:logback-classic:${libs.versions.logbackVersionrange.get()}!!${libs.versions.logback.get()}")
 
   testImplementation("org.spockframework:spock-core:2.3-groovy-4.0")
+  testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks {
