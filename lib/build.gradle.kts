@@ -7,7 +7,7 @@ plugins {
   id("maven-publish")
   id("signing")
   id("com.github.ben-manes.versions")
-//  id("org.sonatype.gradle.plugins.scan")
+  id("org.sonatype.gradle.plugins.scan")
   id("io.freefair.maven-central.validate-poms")
 }
 
@@ -33,6 +33,11 @@ dependencies {
           strictly(libs.versions.okioVersionrange.get())
           prefer(libs.versions.okio.get())
         }
+      }
+    }
+    implementation("de.gesellix:docker-filesocket") {
+      version {
+        strictly("[2025-01-01T01-01-01,)")
       }
     }
   }
