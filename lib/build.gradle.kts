@@ -41,9 +41,8 @@ dependencies {
       }
     }
   }
-  implementation("de.gesellix:docker-remote-api-client:[2025-01-01T01-01-01,)")
+  implementation("de.gesellix:docker-remote-api-client:[2025-11-09T01-01-01,)")
   implementation("de.gesellix:docker-remote-api-model-1-41:[2025-01-01T01-01-01,)")
-  implementation("de.gesellix:docker-engine:[2025-01-01T01-01-01,)")
 
   implementation("org.slf4j:slf4j-api:${libs.versions.slf4jVersionrange.get()}!!${libs.versions.slf4j.get()}")
   testImplementation("ch.qos.logback:logback-classic:${libs.versions.logbackVersionrange.get()}!!${libs.versions.logback.get()}")
