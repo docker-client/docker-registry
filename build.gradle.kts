@@ -12,6 +12,8 @@ plugins {
 }
 
 val dependencyVersions = listOf(
+  "com.squareup.okhttp3:okhttp:${libs.versions.okhttp.get()}",
+  "com.squareup.okhttp3:okhttp-jvm:${libs.versions.okhttp.get()}",
   "org.jetbrains:annotations:26.0.2-1"
 )
 
