@@ -47,7 +47,7 @@ dependencies {
   implementation("org.slf4j:slf4j-api:${libs.versions.slf4jVersionrange.get()}!!${libs.versions.slf4j.get()}")
   testImplementation("ch.qos.logback:logback-classic:${libs.versions.logbackVersionrange.get()}!!${libs.versions.logback.get()}")
 
-  testImplementation("org.spockframework:spock-core:2.3-groovy-4.0")
+  testImplementation("org.spockframework:spock-core:2.4-groovy-5.0")
   testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
