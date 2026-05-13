@@ -40,6 +40,17 @@ dependencies {
         strictly("[2026-01-01T01-01-01,)")
       }
     }
+    listOf(
+      "org.bouncycastle:bcpkix-jdk18on",
+      "org.bouncycastle:bcprov-jdk18on",
+      "org.bouncycastle:bcutil-jdk18on",
+    ).forEach {
+      implementation(it) {
+        version {
+          strictly("[1.84,)")
+        }
+      }
+    }
   }
   implementation("de.gesellix:docker-remote-api-client:[2026-01-01T01-01-00,)")
   implementation("de.gesellix:docker-remote-api-model-1-44:[2026-01-01T01-01-01,)")
