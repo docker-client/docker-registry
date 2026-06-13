@@ -36,12 +36,8 @@ public class DockerRegistry {
     this.containerApi = new ContainerApi(dockerClientConfig);
     this.imageApi = new ImageApi(dockerClientConfig);
 
-    if (LocalDocker.isNativeWindows()) {
-      imageNameWithTag = "gesellix/registry:3.1.1-windows-ltsc2022";
-    } else {
-      imageNameWithTag = "registry:3.1.1";
-    }
-    imageNameWithTag = System.getProperty("DOCKER_REGISTRY_IMAGE_OVERRIDE", imageNameWithTag);
+    final String defaultImageNameWithTag = "gesellix/registry:3.1.1";
+    imageNameWithTag = System.getProperty("DOCKER_REGISTRY_IMAGE_OVERRIDE", defaultImageNameWithTag);
   }
 
   public void setImageNameWithTag(String imageNameWithTag) {
