@@ -1,12 +1,15 @@
-FROM golang:1.26.4 AS build
-#FROM golang:1.19.0-nanoserver AS build
+ARG GO_VERSION=1.26.4
+ARG WINDOWS_VERSION=ltsc2022
+ARG DISTRIBUTION_VERSION=v3.1.1
+
+FROM golang:${GO_VERSION}-windowsservercore-${WINDOWS_VERSION} AS build
 
 ENV GO111MODULE=auto
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-ENV DOCKER_BUILDTAGS include_oss include_gcs
-ENV DISTRIBUTION_VERSION v3.1.1
+ENV DOCKER_BUILDTAGS="include_oss include_gcs"
+ARG DISTRIBUTION_VERSION
 
 RUN mkdir src\github.com\distribution ; \
     cd src\github.com\distribution ; \
@@ -17,7 +20,7 @@ RUN mkdir src\github.com\distribution ; \
     go build -o registry.exe ; \
     dir
 
-FROM mcr.microsoft.com/windows/nanoserver:ltsc2022
+FROM mcr.microsoft.com/windows/nanoserver:${WINDOWS_VERSION}
 EXPOSE 5000
 
 ENTRYPOINT ["\\registry.exe"]

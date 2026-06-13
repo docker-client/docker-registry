@@ -57,7 +57,7 @@ jobs:
           name: Test Results (Java ${{ matrix.java }} on ${{ matrix.os }})
           path: '**/build/test-results/test/TEST-*.xml'
   image-build:
-    runs-on: windows-latest
+    runs-on: windows-2022
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v6
