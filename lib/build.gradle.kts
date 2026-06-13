@@ -37,7 +37,7 @@ dependencies {
     }
     implementation("de.gesellix:docker-filesocket") {
       version {
-        strictly("[2026-01-01T01-01-01,)")
+        strictly("[2.0.0-202606131111,)")
       }
     }
     listOf(
@@ -52,8 +52,8 @@ dependencies {
       }
     }
   }
-  implementation("de.gesellix:docker-remote-api-client:[2026-01-01T01-01-00,)")
-  implementation("de.gesellix:docker-remote-api-model-1-44:[2026-01-01T01-01-01,)")
+  implementation("de.gesellix:docker-remote-api-client:[2.0.0-202606131218,)")
+  implementation("de.gesellix:docker-remote-api-model-1-44:[2.0.0-202606131148,)")
 
   implementation("org.slf4j:slf4j-api:${libs.versions.slf4jVersionrange.get()}!!${libs.versions.slf4j.get()}")
   testImplementation("ch.qos.logback:logback-classic:${libs.versions.logbackVersionrange.get()}!!${libs.versions.logback.get()}")
