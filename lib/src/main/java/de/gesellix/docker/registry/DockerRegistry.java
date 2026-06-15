@@ -1,7 +1,7 @@
 package de.gesellix.docker.registry;
 
+import static java.util.Arrays.asList;
 import static java.util.Collections.emptyMap;
-import static java.util.Collections.singletonList;
 
 import java.util.HashMap;
 import java.util.List;
@@ -51,7 +51,9 @@ public class DockerRegistry {
   public void run() {
     ContainerCreateRequest containerConfig = new ContainerCreateRequest();
     containerConfig.setImage(getImageNameWithTag());
-    containerConfig.setEnv(singletonList("REGISTRY_VALIDATION_DISABLED=true"));
+    containerConfig.setEnv(asList(
+        "REGISTRY_VALIDATION_DISABLED=true",
+        "OTEL_TRACES_EXPORTER=none"));
     Map<String, Object> exposedPorts = new HashMap<>();
     exposedPorts.put("5000/tcp", emptyMap());
     containerConfig.setExposedPorts(exposedPorts);
