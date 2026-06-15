@@ -22,8 +22,11 @@ RUN mkdir -p src/github.com/distribution \
 FROM alpine:3.24.0
 EXPOSE 5000
 
-ENTRYPOINT ["/registry"]
+# Note: the registry binary must NOT live at /registry, because config.yml
+# configures the filesystem storage rootdirectory as /registry. Placing the
+# binary there would make every storage access fail with ENOTDIR (HTTP 500).
+ENTRYPOINT ["/bin/registry"]
 CMD ["serve", "/config/config.yml"]
 
-COPY --from=build /registry /registry
+COPY --from=build /registry /bin/registry
 COPY config.yml /config/config.yml
