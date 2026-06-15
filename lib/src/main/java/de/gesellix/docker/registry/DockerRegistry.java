@@ -36,7 +36,7 @@ public class DockerRegistry {
     this.containerApi = new ContainerApi(dockerClientConfig);
     this.imageApi = new ImageApi(dockerClientConfig);
 
-    final String defaultImageNameWithTag = "gesellix/registry:3.1.1";
+    final String defaultImageNameWithTag = "gesellix/registry:3.1.2";
     imageNameWithTag = System.getProperty("DOCKER_REGISTRY_IMAGE_OVERRIDE", defaultImageNameWithTag);
   }
 
